@@ -19,3 +19,5 @@ EXPORTS
  WNetGetUniversalNameW
  WNetGetUserA
  WNetOpenEnumA
+ WNetGetProviderNameW
+ WNetGetLastErrorW

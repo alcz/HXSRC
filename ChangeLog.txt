@@ -3,6 +3,35 @@
    2010-12-31 13:59 UTC+0100 User Name (whoami users.github.com)
 */
 
+2018-04-26 21:22 UTC+0200 Aleksander Czajczynski (alcz users.noreply.github.com)
+  ; goal of this commit is to make HX run unmodified executables of simple
+    programs compiled with Visual Studio 2017
+
+  + DKRNL32/FNDFILEE.ASM
+    + stub of FindFirstFileExA returning INVALID_HANDLE_VALUE, 
+      with last error ERROR_NOT_SUPPORTED
+
+  * DKRNL32/GETMODHE.ASM
+    + tiny GetModuleHandleExW
+
+  + DKRNL32/SLIST.ASM
+    + try at InitializeSListHead
+
+  * DKRNL32/TIME2.ASM
+    + possibly valid implementation of TzSpecificLocalTimeToSystemTime
+
+  * DKRNL32/DKRNL32.DEF
+  * DKRNL32/DKRNL32.RSP
+    * exported additions
+
+  * OLE32/*
+  * OLEAUT32/*
+    * current approach is to stub some functions in OLE subsystem, for me
+      OLE automation doesn't make much sense for now
+
+  * MPR/*
+    + added WNetGetProviderNameW, WNetGetLastErrorW stubs
+
 2018-04-26 12:26 UTC+0100 Aleksander Czajczynski (alcz users.noreply.github.com)
   ; updated source tree to HX 2.17
   ; https://sourceforge.net/projects/hx-dos/files/2.17/HXSRC217.zip/download

@@ -3,6 +3,7 @@
 ;--- CreateNamedPipeA
 ;--- PeekNamedPipe
 ;--- GetNamedPipeHandleStateA
+;--- GetNamedPipeHandleStateW
 ;--- SetNamedPipeHandleState
 ;--- GetNamedPipeInfo
 ;--- WaitNamedPipeA
@@ -84,6 +85,17 @@ GetNamedPipeHandleStateA proc public handle:dword, lpState:ptr dword, lpCurInsta
 	align 4
 
 GetNamedPipeHandleStateA endp
+
+GetNamedPipeHandleStateW proc public handle:dword, lpState:ptr dword, lpCurInstances:ptr dword, lpMaxCollectionCount:ptr dword,
+		lpCollectDataTimeout:ptr dword, lpUserName:ptr BYTE, nMaxUserNameSize:dword
+
+	invoke SetLastError, ERROR_NOT_SUPPORTED
+	xor eax,eax
+	@strace <[ebp+4],": GetNamedPipeHandleStateW(", handle, ", ", lpState, ", ", lpCurInstances, ", ", lpMaxCollectionCount, ", ", lpCollectDataTimeout, ", ", lpUserName, ", ", nMaxUserNameSize, ")=", eax, " *** unsupp ***">
+	ret
+	align 4
+
+GetNamedPipeHandleStateW endp
 
 SetNamedPipeHandleState proc public handle:dword, lpMode:ptr dword, lpMaxCollectionCount:ptr dword, lpCollectDataTimeout:ptr dword
 

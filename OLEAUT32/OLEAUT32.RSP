@@ -27,13 +27,20 @@ EXPORT {
  SafeArrayPutElement    .26
  GetActiveObject        .35
  SafeArrayRedim         .40
+ VarR8FromCy            .82
+ VarCyFromR8            .102
  VariantChangeTypeEx    .147
  SafeArrayPtrOfIndex    .148
  SysStringByteLen       .149
  SysAllocStringByteLen  .150
  LoadTypeLib            .161
+ LoadRegTypeLib         .162
+ RegisterTypeLib        .163
  QueryPathOfRegTypeLib  .164
  VariantTimeToSystemTime .185
+ VarDecFromR8           .194
  GetErrorInfo           .200
  SetErrorInfo           .201
+ VarR8FromDec           .220
+ SafeArrayCreateVector  .411
 }

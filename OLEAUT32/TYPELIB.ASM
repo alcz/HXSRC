@@ -31,4 +31,20 @@ QueryPathOfRegTypeLib proc public guid:ptr BYTE, wVerMajor:DWORD, wVerMinor:DWOR
 
 QueryPathOfRegTypeLib endp
 
+RegisterTypeLib proc public pITypeLib:ptr DWORD, pszwFullPath:ptr WORD, pszwHelpDir:ptr WORD
+
+		@trace <"RegisterTypeLib *** unsupp ***",13,10>
+		mov eax,E_FAIL
+        ret
+
+RegisterTypeLib endp
+
+LoadRegTypeLib proc public rguid:ptr BYTE, wVerMajor:DWORD, wVerMinor:DWORD, lcid:DWORD, pITypeLib:ptr DWORD
+
+		@trace <"LoadRegTypeLib *** unsupp ***",13,10>
+		mov eax,E_FAIL
+        ret
+
+LoadRegTypeLib endp
+
 		end

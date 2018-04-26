@@ -77,6 +77,32 @@ exit:
 
 LeaveCriticalSection endp
 
+;--- bool TryEnterCriticalSection(pCS) 
+
+TryEnterCriticalSection proc public uses ebx esi pCS:ptr CRITICAL_SECTION
+
+	mov ebx,pCS
+if ?GBLCURRENT
+	mov esi, [g_hCurThread]
+else
+	invoke _GetCurrentThread
+	mov esi, eax
+endif
+	cmp esi, [ebx].CRITICAL_SECTION.OwningThread
+	jz is_ours
+	invoke WaitForSingleObject, [ebx].CRITICAL_SECTION.LockSemaphore, INFINITE
+	cmp eax, WAIT_OBJECT_0
+	jnz exit
+	mov [ebx].CRITICAL_SECTION.OwningThread,esi
+is_ours:
+	inc [ebx].CRITICAL_SECTION.LockCount
+exit:
+;	@strace	<"TryEnterCriticalSection(", pCS, ")=void">
+	ret
+	align 4
+
+TryEnterCriticalSection endp
+
 ;--- void InitializeCriticalSection(pCS)
 ;--- the event initial state is signaled
 

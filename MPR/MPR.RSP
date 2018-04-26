@@ -20,4 +20,6 @@ EXPORT {
  WNetGetUniversalNameW
  WNetGetUserA
  WNetOpenEnumA
+ WNetGetProviderNameW
+ WNetGetLastErrorW
 }

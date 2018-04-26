@@ -78,6 +78,24 @@ CoUninitialize proc public
 
 CoUninitialize endp
 
+CoRegisterClassObject proc public rclsid:dword, pUnk:ptr, dwClsContext:dword, flags:dword, lpdwRegister:dword
+
+	mov eax, E_UNEXPECTED
+	@strace <"CoRegisterClassObject(", rclsid, ", ", pUnk, ", ... )=", eax>
+	ret
+	align 4
+
+CoRegisterClassObject endp
+
+CoRevokeClassObject proc public dwRegister:dword
+
+	mov eax, S_OK
+	@strace <"CoRevokeClassObject(", dwRegister, ", ... )=", eax>
+	ret
+	align 4
+
+CoRevokeClassObject endp
+
 OleInitialize proc public pvReserved:DWORD
 
 		invoke CoInitialize, pvReserved

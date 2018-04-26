@@ -54,6 +54,27 @@ local	filetime:FILETIME
 
 SystemTimeToTzSpecificLocalTime endp
 
+TzSpecificLocalTimeToSystemTime proc public lpTimeZone:ptr TIME_ZONE_INFORMATION,
+		lpLocalTime:ptr SYSTEMTIME, lpUniversalTime:ptr SYSTEMTIME
+
+local	filetime:FILETIME
+
+	invoke SystemTimeToFileTime, lpLocalTime, addr filetime
+	call tzset
+	mov ecx, lpTimeZone
+	mov eax, [ecx].TIME_ZONE_INFORMATION.Bias	;in minutes
+	mov ecx, 60*1000*1000*10	;1 s == 1000 * 1000 * 10 (100 ns units)
+	imul ecx
+	add dword ptr filetime+0,eax
+	adc dword ptr filetime+4,edx
+	invoke FileTimeToSystemTime, addr filetime, lpUniversalTime
+	mov eax,1
+	@strace <"TzSpecificLocalTimeToSystemTime(", lpTimeZone, ", ", lpLocalTime, ", ", lpUniversalTime, ")=", eax>
+	ret
+	align 4
+
+TzSpecificLocalTimeToSystemTime endp
+
 endif
 
 	end

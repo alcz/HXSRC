@@ -156,4 +156,44 @@ VariantTimeToSystemTime proc public vTime:REAL8, lpSystemTime:ptr SYSTEMTIME
 
 VariantTimeToSystemTime endp
 
+;VarCyFromR8 proc public dblIn:REAL8, pcyOut:ptr VARIANT
+VarCyFromR8 proc public dblIn:DWORD, pcyOut:DWORD, p:DWORD
+
+	mov eax,E_INVALIDARG
+	@strace <"VarCyFromR8(", dblIn, ")=", eax, " *** unsupp ***">
+	ret
+	align 4
+
+VarCyFromR8 endp
+
+;VarDecFromR8 proc public dblIn:REAL8, pDecOut:ptr VARIANT
+VarDecFromR8 proc public dblIn:DWORD, pDecOut:DWORD, p:DWORD
+
+	mov eax,E_INVALIDARG
+	@strace <"VarDecFromR8(", dblIn, ")=", eax, " *** unsupp ***">
+	ret
+	align 4
+
+VarDecFromR8 endp
+
+;VarR8FromCy proc public cyIn:ptr VARIANT, pdblOut:ptr REAL8
+VarR8FromCy proc public cyIn:DWORD, pdblOut:DWORD, p:DWORD
+
+	mov eax,E_INVALIDARG
+	@strace <"VarR8FromCy(", cyIn, ")=", eax, " *** unsupp ***">
+	ret
+	align 4
+
+VarR8FromCy endp
+
+;VarR8FromDec proc public pDecIn:ptr VARIANT, pdblOut:ptr REAL8
+VarR8FromDec proc public pDecIn:DWORD, pdblOut:DWORD
+
+	mov eax,E_INVALIDARG
+	@strace <"VarCyFromDec(", pDecIn, ")=", eax, " *** unsupp ***">
+	ret
+	align 4
+
+VarR8FromDec endp
+
 	end

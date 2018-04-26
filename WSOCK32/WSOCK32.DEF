@@ -45,3 +45,5 @@ EXPORTS
  WSACleanup            =_WSACleanup              @116
  __WSAFDIsSet          =___WSAFDIsSet            @151
 ; s_perror              =_s_perror                @1108
+ AcceptEx              =_AcceptEx                @1141
+ GetAcceptExSockaddrs  =_GetAcceptExSockaddrs    @1142

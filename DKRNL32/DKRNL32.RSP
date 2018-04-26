@@ -142,6 +142,7 @@ EXPORT {
  FindCloseChangeNotification
  FindFirstChangeNotificationA
  FindFirstFileA
+ FindFirstFileExA
  FindFirstFileW
  FindNextChangeNotification
  FindNextFileA
@@ -235,8 +236,10 @@ EXPORT {
  GetModuleFileNameA
  GetModuleFileNameW
  GetModuleHandleA
+ GetModuleHandleExW
  GetModuleHandleW
  GetNamedPipeHandleStateA
+ GetNamedPipeHandleStateW
  GetNamedPipeInfo
  GetNumberFormatA
  GetNumberFormatW
@@ -343,6 +346,7 @@ EXPORT {
  HXLoadVDD
  InitializeCriticalSection
  InitializeCriticalSectionAndSpinCount
+ InitializeSListHead
  InterlockedCompareExchange
  InterlockedDecrement
  InterlockedExchange
@@ -513,11 +517,13 @@ EXPORT {
  TerminateThread
  Thread32First
  Thread32Next
+ TryEnterCriticalSection
  TlsAlloc
  TlsFree
  TlsGetValue
  TlsSetValue
  TransmitCommChar
+ TzSpecificLocalTimeToSystemTime
  UnhandledExceptionFilter
  UnlockFile
  UnlockFileEx

@@ -1,9 +1,13 @@
 #HXSRC
 
-This is version 2.16 of the source files for Japheth's HXDOS Extender and related tools. I have not done any modification to the code,
-this is only a snapshot of the v2.16 release so that it can remain available for use.
+This is fork of 2.17 of Japheth's HXDOS Extender and related tools.
+Personal aim is to make it run my own 32-bit software compiled with MSVC 2017.
+Having the same binary tested and deployed on newest Win32 hosts and at the
+same time on simple DOS installations may still have use cases.
 
-It still retains the Sybase license that he released it with.
+Upstream repository claims, that the source code has Sybase license
+https://opensource.org/licenses/Watcom-1.0, but IMHO this applies to JWLink,
+which is not included here. Further clarification is needed.
 
 The HXSRC package contains the HX DOS extender source code. This consists of:
 * DPMI host HDPMI32.EXE / HDPMI16 (MASM)

@@ -108,4 +108,18 @@ WNetCloseEnum proc public hEnum:DWORD
         align 4
 WNetCloseEnum endp
 
+WNetGetProviderNameW proc public dwNetType:DWORD, lpProviderName:ptr, lpBufferSize:ptr
+		mov eax, ERROR_NO_NETWORK
+        @strace <"WNetGetProviderNameW(", dwNetType, ")=", eax>
+        ret
+        align 4
+WNetGetProviderNameW endp
+
+WNetGetLastErrorW proc public lpError:ptr DWORD, lpStr:ptr, nErrorBufSize:DWORD, lpNameBuf:ptr, nNameBufSize:DWORD
+		mov eax, ERROR_NO_NETWORK
+        @strace <"WNetGetLastErrorW(", lpError, ")=", eax>
+        ret
+        align 4
+WNetGetLastErrorW endp
+
 		end

@@ -28,6 +28,15 @@ SafeArrayCreate proc public vt:DWORD, cDims:DWORD, pArray:ptr DWORD
 
 SafeArrayCreate endp
 
+SafeArrayCreateVector proc public vt:DWORD, lLbound:DWORD, cElement:DWORD
+
+	xor eax, eax
+	@strace <"SafeArrayCreateVector(", vt, ", ", lLbound, ", ", cElement, ")=", eax, " *** unsupp ***">
+	ret
+	align 4
+
+SafeArrayCreateVector endp
+
 SafeArrayDestroy proc public psa:ptr
 
 	mov eax,E_INVALIDARG
