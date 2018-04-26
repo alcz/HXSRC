@@ -63,7 +63,13 @@
 
  3. History
 
- 2009/__/__ V1.8
+ 2011/05/27 V1.9
+
+ þ bugfix: exports inet_addr, inet_ntoa and ioctlsocket had wrong export
+   numbers.
+ þ bugfix: WS2_32-specific exports had no prologue/epilogue.
+ 
+ 2009/11/16 V1.8
 
  þ WSAAsyncSelect, WSAAsyncGetHostByName, WSACancelAsyncRequest added.
  þ WSAIoctl, WSAAddressToStringA added (dummies).
